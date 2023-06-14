@@ -26,7 +26,7 @@ app.use(express.static('public'));
 
 // Setting up the routes
 app.post('/signup', signupController);
-app.post('/register/newsletter',registernewsletterController);
+app.post('/newsletter',registernewsletterController);
 app.post('/subscription',checknewsletter);
 app.post('/invoice',registerInvoiceController);
 app.post('/update',updateBalanceController);
