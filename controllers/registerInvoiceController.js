@@ -1,7 +1,6 @@
 const invoiceCollection = require('../models/invoiceModel');
 
 module.exports = async function (req, res) {
-  console.log(req.body);
   try {
     const invoiceData = new invoiceCollection({
       orderId: req.body.orderId,
