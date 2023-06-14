@@ -3,10 +3,10 @@ const invoiceCollection = require('../models/invoiceModel');
 module.exports = async function (req, res) {
   try {
     const { email } = req.body;
-    const transactionData = await invoiceCollection.findOne({ email: email });
+    const transactionData = await invoiceCollection.findOne(email);
 
     if (transactionData) {
-      res.send(transactionData);
+      res.json(transactionData);
     } else {
       console.error("Failed to find transaction data");
       res.sendStatus(404);
