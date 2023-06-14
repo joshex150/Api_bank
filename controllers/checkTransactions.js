@@ -1,12 +1,13 @@
 const invoiceCollection = require('../models/invoiceModel');
 
-module.exports = async function(req, res) {
+module.exports = async function (req, res) {
+  console.log(req.body);
   try {
-    const { email } = req.body;
+    const { email } = req.body.email;
     const transactionData = await invoiceCollection.findOne(email);
     res.send(transactionData)
   } catch (error) {
     console.error(error);
-    res.sendStatus(500);
+    res.status(500).send('Internal server error');
   }
 };
