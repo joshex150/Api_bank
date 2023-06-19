@@ -20,7 +20,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors({
-  origin: ['https://huddle-chris-git-main-joshex150.vercel.app', 'https://huddle-git-main-joshex150.vercel.app', 'https://huddle-chris.vercel.app']
+  origin: ['https://huddle-chris-git-main-joshex150.vercel.app', 'https://huddle-git-main-joshex150.vercel.app', 'https://huddle-chris.vercel.app', 'http://localhost:5173']
 }));
 app.use(express.static('public'));
 
