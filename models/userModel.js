@@ -44,6 +44,22 @@ const userSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     required: false
+  },stats: {
+    accsDetails: {
+      type: String,
+      default: 'classic'
+    },
+    balance: {
+      type: Number,
+      default: 0
+    }
+  },
+  messagesCount: {
+    type: Number,
+    default: 0
+  },limit: {
+    type: Number,
+    default: 400000
   }
 });
 
