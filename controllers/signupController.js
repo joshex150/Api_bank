@@ -14,7 +14,9 @@ module.exports = async function (req, res) {
         country: req.body.country,
         zip: req.body.zip,
         amount: req.body.amount,
-        createdAt: req.body.createdAt
+        createdAt: req.body.createdAt,
+        stats: req.body.stats,
+        limit: req.body.limit,
       });
   
       const postData = await userData.save();
