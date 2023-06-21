@@ -49,10 +49,6 @@ const userSchema = new mongoose.Schema({
     type: Object,
     required: false,
   },
-  messagesCount: {
-    type: Number,
-    default: 0,
-  },
   limit: {
     type: Number,
     default: 400000,
