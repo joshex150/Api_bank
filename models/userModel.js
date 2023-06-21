@@ -35,6 +35,7 @@ const userSchema = new mongoose.Schema({
   amount: {
     type: Number,
     required: false,
+    default: 0
   },
   password: {
     type: String,
@@ -46,8 +47,21 @@ const userSchema = new mongoose.Schema({
     required: false,
   },
   stats: {
-    type: String,
-    required: false,
+    accsDetails: {
+      type: {
+        type: String,
+        default: 'Classic',
+        enum: ['Classic', 'Silver', 'Gold']
+      },
+      balance: {
+        type: Number,
+        default: 0
+      }
+    },
+    messagesCount: {
+      type: Number,
+        default: 0
+    }
   },
   limit: {
     type: Number,
