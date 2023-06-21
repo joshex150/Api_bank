@@ -1,68 +1,64 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
   firstname: {
     type: String,
-    required: true
+    required: true,
   },
   lastname: {
     type: String,
-    required: true
+    required: true,
   },
   phone: {
     type: Number,
     min: 9,
     unique: true,
-    required: false
+    required: false,
   },
   email: {
     type: String,
     unique: true,
-    required: true
+    required: true,
   },
   country: {
     type: String,
-    required: true
-  },  
+    required: true,
+  },
   state: {
     type: String,
-    required: false
+    required: false,
   },
   zip: {
     type: Number,
-    required: false
+    required: false,
   },
   amount: {
     type: Number,
-    required: false
+    required: false,
   },
   password: {
     type: String,
     min: 6,
-    required: true
+    required: true,
   },
   createdAt: {
     type: Date,
-    required: false
-  },stats: {
-    accsDetails: {
-      type: String,
-      default: 'classic'
-    },
-    balance: {
-      type: Number,
-      default: 0
-    }
+    required: false,
+  },
+  stats: {
+    type: Object,
+    required: false,
   },
   messagesCount: {
     type: Number,
-    default: 0
-  },limit: {
+    default: 0,
+  },
+  limit: {
     type: Number,
-    default: 400000
-  }
+    default: 400000,
+  },
 });
 
-const userCollection = new mongoose.model('usercollection', userSchema);
+const userCollection = new mongoose.model("usercollection", userSchema);
 
 module.exports = userCollection;
