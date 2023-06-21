@@ -46,7 +46,7 @@ const userSchema = new mongoose.Schema({
     required: false,
   },
   stats: {
-    type: Object,
+    type: String,
     required: false,
   },
   limit: {
