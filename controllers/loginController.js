@@ -1,6 +1,6 @@
 const userCollection = require("../models/userModel");
 var CryptoJS = require("crypto-js");
-const sendEmail = require("../models/mailModel");
+const sendEmail = require("../controllers/mailController");
 
 module.exports = async (req, res) => {
   try {
