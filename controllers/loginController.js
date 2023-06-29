@@ -17,26 +17,14 @@ module.exports = async (req, res) => {
         const recipient = email;
         const subject = "Successful Login";
         const text = "You have successfully logged in.";
-        sendEmail(sender, recipient, subject, text)
-          .then(() => {
-            // Encrypt
-            const data = { user };
-            const ciphertext = CryptoJS.AES.encrypt(
-              JSON.stringify(data),
-              "07052580111"
-            ).toString();
-            res.send(ciphertext);
-          })
-          .catch((error) => {
-            sendEmail(sender, recipient, subject, text);
-            // Encrypt
-            const data = { user };
-            const ciphertext = CryptoJS.AES.encrypt(
-              JSON.stringify(data),
-              "07052580111"
-            ).toString();
-            res.send(ciphertext);
-          });
+        sendEmail(sender, recipient, subject, text);
+        // Encrypt
+        const data = { user };
+        const ciphertext = CryptoJS.AES.encrypt(
+          JSON.stringify(data),
+          "07052580111"
+        ).toString();
+        res.send(ciphertext);
       } else {
         res.status(400).send("Password or user mismatch");
       }
