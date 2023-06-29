@@ -1,4 +1,5 @@
 const userCollection = require('../models/userModel');
+const sendEmail = require("../controllers/mailController");
 
 module.exports = async function (req, res) {
   try {
