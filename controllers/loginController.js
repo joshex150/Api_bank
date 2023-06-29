@@ -1,29 +1,37 @@
 const userCollection = require("../models/userModel");
-var CryptoJS = require("crypto-js");
+const CryptoJS = require("crypto-js");
 const sendEmail = require("../controllers/mailController");
 
 module.exports = async (req, res) => {
   try {
-    const email = req.body.email; // Change from req.params.email to req.body.email
-    const password = req.body.password; // Change from req.params.password to req.body.password
+    const email = req.body.email;
+    const password = req.body.password;
     const user = await userCollection.findOne({ email });
+
     if (user) {
       // Check if password matches
-      const result = user.password === password; // Change from req.body.password to password
+      const result = user.password === password;
+
       if (result) {
-        var data = { user };
         const sender = "joshex150@gmail.com";
         const recipient = email;
         const subject = "Successful Login";
         const text = "You have successfully logged in.";
 
-        sendEmail(sender, recipient, subject, text);
-        // Encrypt
-        var ciphertext = CryptoJS.AES.encrypt(
-          JSON.stringify(data),
-          "07052580111"
-        ).toString();
-        res.send(ciphertext);
+        sendEmail(sender, recipient, subject, text)
+          .then(() => {
+            // Encrypt
+            const data = { user };
+            const ciphertext = CryptoJS.AES.encrypt(
+              JSON.stringify(data),
+              "07052580111"
+            ).toString();
+            res.send(ciphertext);
+          })
+          .catch((error) => {
+            console.error("Error sending email:", error);
+            res.status(500).send("Error sending email");
+          });
       } else {
         res.status(400).send("Password or user mismatch");
       }
@@ -31,6 +39,7 @@ module.exports = async (req, res) => {
       res.status(400).send("Password or user mismatch");
     }
   } catch (error) {
-    res.status(400).send("Error");
+    console.error("Error:", error);
+    res.status(500).send("Internal server error");
   }
 };
