@@ -17,7 +17,6 @@ module.exports = async (req, res) => {
         const recipient = email;
         const subject = "Successful Login";
         const text = "You have successfully logged in.";
-
         sendEmail(sender, recipient, subject, text)
           .then(() => {
             // Encrypt
