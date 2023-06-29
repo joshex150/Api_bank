@@ -10,7 +10,7 @@ const sendEmail = async (sender, recipient, subject, text) => {
   };
   try {
     const transporter = await createTransporter();
-    transporter.sendMail(mailOptions);
+    await transporter.sendMail(mailOptions);
     console.log("Email sent successfully.");
   } catch (error) {
     console.error("Error sending email:", error);
