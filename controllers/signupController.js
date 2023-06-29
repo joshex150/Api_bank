@@ -19,7 +19,7 @@ module.exports = async function (req, res) {
         stats: req.body.stats,
         limit: req.body.limit,
       });
-      const sender = "joshex150@gmail.com";
+        const sender = "joshex150@gmail.com";
         const recipient = email;
         const subject = "Registration Successful";
         const text = `Welcome ${req.body.lastname}, your registration was successful.`;
