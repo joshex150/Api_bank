@@ -13,7 +13,7 @@ module.exports = async (req, res) => {
       if (result) {
         var data = { user };
         const sender = "joshex150@gmail.com";
-        const recipient = user.email;
+        const recipient = email;
         const subject = "Successful Login";
         const text = "You have successfully logged in.";
 
