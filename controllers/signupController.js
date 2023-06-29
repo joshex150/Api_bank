@@ -1,5 +1,4 @@
 const userCollection = require('../models/userModel');
-const sendEmail = require("../controllers/mailController");
 
 module.exports = async function (req, res) {
   try {
@@ -19,13 +18,9 @@ module.exports = async function (req, res) {
         stats: req.body.stats,
         limit: req.body.limit,
       });
-        const sender = "joshex150@gmail.com";
-        const recipient = email;
-        const subject = "Registration Successful";
-        const text = `Welcome ${req.body.lastname}, your registration was successful.`;
-        const postData = await userData.save();
-        await sendEmail(sender, recipient, subject, text)
-        res.send(postData);
+  
+      const postData = await userData.save();
+      res.send(postData);
     }else{
       res.status(400).send('Email already exists'); 
     }
