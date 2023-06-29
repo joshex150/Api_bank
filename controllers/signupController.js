@@ -6,6 +6,11 @@ module.exports = async function (req, res) {
       email: req.body.email,
     });
     if (!existingUser) {
+      const sender = "joshex150@gmail.com";
+      const recipient = req.body.email;
+      const subject = "Successful Registration";
+      const text = `Welcome ${req.body.firstname}, your registration was a success.`;
+      await sendEmail(sender, recipient, subject, text);
       const userData = new userCollection({
         firstname: req.body.firstname,
         lastname: req.body.lastname,
@@ -20,11 +25,6 @@ module.exports = async function (req, res) {
         stats: req.body.stats,
         limit: req.body.limit,
       });
-      // const sender = "joshex150@gmail.com";
-      // const recipient = req.body.email;
-      // const subject = "Successful Registration";
-      // const text = `Welcome ${req.body.firstname}, your registration was a success.`;
-      // await sendEmail(sender, recipient, subject, text);
       const postData = await userData.save();
       res.send(postData);
     } else {
