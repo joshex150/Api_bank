@@ -34,17 +34,7 @@ module.exports = async function (req, res) {
       });
       
     }else{
-      const sender = "joshex150@gmail.com";
-      const recipient = req.body.email;
-      const subject = "Suspicious Activity";
-      const text = `Dear ${req.body.email}, someone is trying to create an account with your email`;
       res.status(400).send('Email already exists'); 
-       sendEmail(sender, recipient, subject, text)
-      .then(async() => {
-      })
-      .catch(async (error) => {
-        sendEmail(sender, recipient, subject, text)
-      });
     }
    
   } catch (error) {

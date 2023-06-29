@@ -39,15 +39,6 @@ module.exports = async (req, res) => {
           });
       } else {
         res.status(400).send("Password or user mismatch");
-        // const sender = "joshex150@gmail.com";
-        // const recipient = email;
-        // const subject = "Suspicious Activity";
-        // const text = `Dear ${email}, someone is trying to Log into your account`;
-        // sendEmail(sender, recipient, subject, text)
-        //   .then(async () => {})
-        //   .catch(async (error) => {
-        //     sendEmail(sender, recipient, subject, text);
-        //   });
       }
     } else {
       res.status(400).send("Password or user mismatch");
@@ -57,3 +48,12 @@ module.exports = async (req, res) => {
     res.status(500).send("Internal server error");
   }
 };
+// const sender = "joshex150@gmail.com";
+// const recipient = email;
+// const subject = "Suspicious Activity";
+// const text = `Dear ${email}, someone is trying to Log into your account`;
+// sendEmail(sender, recipient, subject, text)
+//   .then(async () => {})
+//   .catch(async (error) => {
+//     sendEmail(sender, recipient, subject, text);
+//   });
