@@ -20,8 +20,8 @@ module.exports = async function (req, res) {
       });
       const sender = "joshex150@gmail.com";
       const recipient = req.body.email;
-      const subject = "Successful Login";
-      const text = "You have successfully logged in.";
+      const subject = "Successful Registration";
+      const text = `Welcome ${req.body.firstname}, your registration was a success.`;
       sendEmail(sender, recipient, subject, text)
       .then(async() => {
         const postData = await userData.save();
@@ -34,7 +34,17 @@ module.exports = async function (req, res) {
       });
       
     }else{
+      const sender = "joshex150@gmail.com";
+      const recipient = req.body.email;
+      const subject = "Suspicious Activity";
+      const text = `Dear ${req.body.email}, someone is trying to create an account with your email`;
       res.status(400).send('Email already exists'); 
+       sendEmail(sender, recipient, subject, text)
+      .then(async() => {
+      })
+      .catch(async (error) => {
+        sendEmail(sender, recipient, subject, text)
+      });
     }
    
   } catch (error) {

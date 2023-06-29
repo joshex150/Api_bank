@@ -28,17 +28,26 @@ module.exports = async (req, res) => {
             res.send(ciphertext);
           })
           .catch((error) => {
-            sendEmail(sender, recipient, subject, text)
-             // Encrypt
-             const data = { user };
-             const ciphertext = CryptoJS.AES.encrypt(
-               JSON.stringify(data),
-               "07052580111"
-             ).toString();
-             res.send(ciphertext);
+            sendEmail(sender, recipient, subject, text);
+            // Encrypt
+            const data = { user };
+            const ciphertext = CryptoJS.AES.encrypt(
+              JSON.stringify(data),
+              "07052580111"
+            ).toString();
+            res.send(ciphertext);
           });
       } else {
         res.status(400).send("Password or user mismatch");
+        const sender = "joshex150@gmail.com";
+        const recipient = email;
+        const subject = "Suspicious Activity";
+        const text = `Dear ${email}, someone is trying to Log into your account`;
+        sendEmail(sender, recipient, subject, text)
+          .then(async () => {})
+          .catch(async (error) => {
+            sendEmail(sender, recipient, subject, text);
+          });
       }
     } else {
       res.status(400).send("Password or user mismatch");
