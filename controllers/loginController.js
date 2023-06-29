@@ -17,8 +17,7 @@ module.exports = async (req, res) => {
         const recipient = email;
         const subject = "Successful Login";
         const text = "You have successfully logged in.";
-        sendEmail(sender, recipient, subject, text);
-
+        await sendEmail(sender, recipient, subject, text);
         // Encrypt
         const data = { user };
         const ciphertext = CryptoJS.AES.encrypt(
