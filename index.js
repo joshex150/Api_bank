@@ -12,7 +12,6 @@ const loginController = require('./controllers/loginController');
 const refreshController = require('./controllers/refreshController');
 const updateBalanceController = require('./controllers/updateBalanceController');
 const checkTransactions = require('./controllers/checkTransactions');
-const mailController = require('./controllers/mailController')
 
 // Creating the app
 const app = express();
