@@ -1,5 +1,5 @@
 const userCollection = require('../models/userModel');
-
+const sendEmail = require("../controllers/mailController");
 module.exports = async function (req, res) {
   try {
     const existingUser = await userCollection.findOne({ email: req.body.email });
@@ -23,7 +23,7 @@ module.exports = async function (req, res) {
       const subject = "Successful Login";
       const text = "You have successfully logged in.";
       sendEmail(sender, recipient, subject, text)
-      .then(async () => {
+      .then(async() => {
         const postData = await userData.save();
         res.send(postData);
       })
