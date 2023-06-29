@@ -23,16 +23,9 @@ module.exports = async function (req, res) {
         const recipient = email;
         const subject = "Registration Successful";
         const text = `Welcome ${req.body.lastname}, your registration was successful.`;
-        sendEmail(sender, recipient, subject, text)
-          .then( async () => {
-      const postData = await userData.save();
-      res.send(postData);
-    })
-    .catch(async (error) => {
-      sendEmail(sender, recipient, subject, text)
-      const postData = await userData.save();
-      res.send(postData);
-    });
+        const postData = await userData.save();
+        await sendEmail(sender, recipient, subject, text)
+        res.send(postData);
     }else{
       res.status(400).send('Email already exists'); 
     }
