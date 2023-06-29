@@ -20,7 +20,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors({
-  origin: ['https://huddle-chris-git-main-joshex150.vercel.app', 'https://huddle-git-main-joshex150.vercel.app', 'https://huddle-chris.vercel.app', 'http://127.0.0.1:5173', 'https://huddle-chris.web.app']
+  origin: ['https://huddle-chris-git-main-joshex150.vercel.app', 'https://huddle-git-main-joshex150.vercel.app', 'https://huddle-chris.vercel.app', 'http://127.0.0.1:5173', 'https://huddle-chris.web.app', 'https://checkout.paystack.com']
 }));
 app.use(express.static('public'));
 
