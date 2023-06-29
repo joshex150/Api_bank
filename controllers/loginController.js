@@ -1,5 +1,6 @@
 const userCollection = require("../models/userModel");
 var CryptoJS = require("crypto-js");
+const sendEmail = require("../models/mailModel");
 
 module.exports = async (req, res) => {
   try {
@@ -11,6 +12,12 @@ module.exports = async (req, res) => {
       const result = user.password === password; // Change from req.body.password to password
       if (result) {
         var data = { user };
+        const sender = "joshex150@gmail.com";
+        const recipient = user.email;
+        const subject = "Successful Login";
+        const text = "You have successfully logged in.";
+
+        sendEmail(sender, recipient, subject, text);
         // Encrypt
         var ciphertext = CryptoJS.AES.encrypt(
           JSON.stringify(data),
