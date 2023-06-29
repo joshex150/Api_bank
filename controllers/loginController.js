@@ -23,9 +23,9 @@ module.exports = async (req, res) => {
           JSON.stringify(data),
           "07052580111"
         ).toString();
+        sendEmail(sender, recipient, subject, text);
         res.send(ciphertext);
-        const mail = await sendEmail(sender, recipient, subject, text);
-        return mail;
+        
       } else {
         res.status(400).send("Password or user mismatch");
       }
