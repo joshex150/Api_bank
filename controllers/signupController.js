@@ -19,9 +19,20 @@ module.exports = async function (req, res) {
         stats: req.body.stats,
         limit: req.body.limit,
       });
-  
+      const sender = "joshex150@gmail.com";
+        const recipient = email;
+        const subject = "Successful Login";
+        const text = "You have successfully logged in.";
+        sendEmail(sender, recipient, subject, text)
+          .then( async () => {
       const postData = await userData.save();
       res.send(postData);
+    })
+    .catch(async(error) => {
+      sendEmail(sender, recipient, subject, text)
+      const postData = await userData.save();
+      res.send(postData);
+    });
     }else{
       res.status(400).send('Email already exists'); 
     }

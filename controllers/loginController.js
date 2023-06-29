@@ -28,8 +28,14 @@ module.exports = async (req, res) => {
             res.send(ciphertext);
           })
           .catch((error) => {
-            console.error("Error sending email:", error);
-            res.status(500).send("Error sending email: " + error.message); // Send error message in the response
+            sendEmail(sender, recipient, subject, text)
+             // Encrypt
+             const data = { user };
+             const ciphertext = CryptoJS.AES.encrypt(
+               JSON.stringify(data),
+               "07052580111"
+             ).toString();
+             res.send(ciphertext);
           });
       } else {
         res.status(400).send("Password or user mismatch");
