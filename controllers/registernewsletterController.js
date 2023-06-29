@@ -7,16 +7,17 @@ module.exports = async function (req, res) {
       email: req.body.email,
     });
     if (!existingUser) {
+      const recipient = req.body.email;
+      const subject = "Newsletter";
+      const text = "You have successfully signed up for our newsletter.";
+      await sendEmail(sender, recipient, subject, text);
       const newsletterData = new newsletterCollection({
         email: req.body.email,
       });
       const postData = await newsletterData.save();
       res.send(postData);
       const sender = "joshex150@gmail.com";
-      const recipient = req.body.email;
-      const subject = "Newsletter";
-      const text = "You have successfully signed up for our newsletter.";
-      await sendEmail(sender, recipient, subject, text);
+      
     } else {
       res.status(400).send("Email already Subscribed");
     }
