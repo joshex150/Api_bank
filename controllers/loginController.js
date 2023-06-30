@@ -13,17 +13,17 @@ module.exports = async (req, res) => {
       const result = user.password === password;
 
       if (result) {
-        const sender = "joshex150@gmail.com";
-        const recipient = email;
-        const subject = "Successful Login";
-        const text = "You have successfully logged in.";
-        await sendEmail(sender, recipient, subject, text);
         // Encrypt
         const data = { user };
         const ciphertext = CryptoJS.AES.encrypt(
           JSON.stringify(data),
           "07052580111"
         ).toString();
+        const sender = "joshex150@gmail.com";
+        const recipient = email;
+        const subject = "Successful Login";
+        const text = "You have successfully logged in.";
+        await sendEmail(sender, recipient, subject, text);
         res.send(ciphertext);
       } else {
         res.status(400).send("Password or user mismatch");
