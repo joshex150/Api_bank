@@ -6,11 +6,6 @@ module.exports = async function (req, res) {
       email: req.body.email,
     });
     if (!existingUser) {
-      const sender = "joshex150@gmail.com";
-      const recipient = req.body.email;
-      const subject = "Successful Registration";
-      const text = `Welcome ${req.body.firstname}, your registration was a success.`;
-      await sendEmail(sender, recipient, subject, text);
       const userData = new userCollection({
         firstname: req.body.firstname,
         lastname: req.body.lastname,
@@ -26,6 +21,11 @@ module.exports = async function (req, res) {
         limit: req.body.limit,
       });
       const postData = await userData.save();
+      const sender = "joshex150@gmail.com";
+      const recipient = req.body.email;
+      const subject = "Successful Registration";
+      const text = `Welcome ${req.body.firstname}, your registration was a success.`;
+      await sendEmail(sender, recipient, subject, text);
       res.send(postData);
     } else {
       res.status(400).send("Email already exists");
