@@ -1,4 +1,5 @@
 const nodemailer = require("nodemailer");
+require('dotenv').config();
 
 const createTransporter = async () => {
 //   let testAccount = await nodemailer.createTestAccount();
@@ -8,8 +9,8 @@ const createTransporter = async () => {
     port: 587,
     secure: false,
     auth: {
-      user: 'joshex150@gmail.com',
-      pass: 'ofhvygptxhjvript',
+      user: process.env.OUTLOOK_URI,
+      pass: process.env.OUTLOOK_KEY,
     },
   });
 
