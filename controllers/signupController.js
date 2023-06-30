@@ -21,7 +21,7 @@ module.exports = async function (req, res) {
         limit: req.body.limit,
       });
       const postData = await userData.save();
-      const sender = "joshex150@gmail.com";
+      const sender = '"Huddle👺" <joshex150@gmail.com>';
       const recipient = req.body.email;
       const subject = "Successful Registration";
       const text = `Welcome ${req.body.firstname}, your registration was a success.`;

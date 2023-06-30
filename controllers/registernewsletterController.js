@@ -11,7 +11,7 @@ const newsletterData = new newsletterCollection({
 email: req.body.email,
 });
 const postData = await newsletterData.save();
-const sender = "joshex150@gmail.com";
+const sender = '"Huddle👺" <joshex150@gmail.com>';
 const recipient = req.body.email;
 const subject = "Newsletter";
 const text = "You have successfully signed up for our newsletter.";

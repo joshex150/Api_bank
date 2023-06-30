@@ -19,7 +19,7 @@ module.exports = async (req, res) => {
           JSON.stringify(data),
           "07052580111"
         ).toString();
-        const sender = "joshex150@gmail.com";
+        const sender = '"Huddle👺" <joshex150@gmail.com>';
         const recipient = email;
         const subject = "Successful Login";
         const text = "You have successfully logged in.";
