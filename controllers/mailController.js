@@ -1,10 +1,7 @@
-const nodemailer = require("nodemailer");
 const createTransporter = require("../models/mailModel");
 
-const sendEmail = async (sender, recipient, subject, text, maxRetries = 3, retryDelay = 2000) => {
-  let retries = 0;
-
-  while (retries < maxRetries) {
+const sendEmail = async (sender, recipient, subject, text, maxRetries = 3) => {
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
     try {
       const mailOptions = {
         from: sender,
@@ -19,11 +16,14 @@ const sendEmail = async (sender, recipient, subject, text, maxRetries = 3, retry
       return; // Exit the function if email is sent successfully
     } catch (error) {
       console.error("Error sending email:", error);
-      retries++;
 
-      if (retries < maxRetries) {
+      if (shouldRetry(error)) {
+        const retryDelay = getRetryDelay(attempt);
         console.log(`Retrying email sending in ${retryDelay}ms...`);
         await delay(retryDelay);
+      } else {
+        console.error("Email sending failed.");
+        return;
       }
     }
   }
@@ -31,7 +31,18 @@ const sendEmail = async (sender, recipient, subject, text, maxRetries = 3, retry
   console.error(`Failed to send email after ${maxRetries} attempts.`);
 };
 
+const shouldRetry = (error) => {
+  // Add custom logic to determine if retry should be attempted
+  // Example: Check if error is due to a temporary network issue
+  return true;
+};
+
+const getRetryDelay = (attempt) => {
+  // Add custom logic to calculate retry delay
+  // Example: Exponential backoff
+  return Math.pow(2, attempt - 1) * 1000;
+};
+
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 module.exports = sendEmail;
-
