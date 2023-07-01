@@ -36,7 +36,8 @@ module.exports = async (req, res) => {
         border-collapse: separate;
         table-layout: fixed;
         mso-table-lspace: 0pt;
-        mso-table-rspace: 0pt
+        mso-table-rspace: 0pt;
+        background: white;
         }
         table td {
         border-collapse: collapse
@@ -153,7 +154,7 @@ module.exports = async (req, res) => {
         <!--[if !mso]><!--><td class=t24 style="width:40px;">
         <!--<![endif]-->
         <!--[if mso]><td class=t24 style="width:40px;"><![endif]-->
-        <div style="font-size:0px;"><img class=t30 style="display:block;border:0;height:auto;width:100%;Margin:0;max-width:100%;" width=40 height=39.34375 src="images/huddle.png" /></div></td>
+        <div style="font-size:0px;"><img class=t30 style="display:block;border:0;height:auto;width:100%;Margin:0;max-width:100%;" width=40 height=39.34375 src="/images/huddle.png" /></div></td>
         </tr></table>
         </td></tr><tr><td><div class=t22 style="mso-line-height-rule:exactly;mso-line-height-alt:50px;line-height:50px;font-size:1px;display:block;">&nbsp;</div></td></tr><tr><td>
         <table class=t33 role=presentation cellpadding=0 cellspacing=0 align=center><tr>
@@ -167,7 +168,7 @@ module.exports = async (req, res) => {
         <!--[if !mso]><!--><td class=t44 style="width:475px;">
         <!--<![endif]-->
         <!--[if mso]><td class=t44 style="width:475px;"><![endif]-->
-        <p class=t50 style="font-family:BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif,'Fira Sans';line-height:26px;font-weight:400;font-style:normal;font-size:16px;text-decoration:none;text-transform:none;direction:ltr;color:#9095A2;text-align:left;mso-line-height-rule:exactly;mso-text-raise:3px;">Dear ${user.firstname},You&#39;re receiving this e-mail because you just logged into your account.</p></td>
+        <p class=t50 style="font-family:BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif,'Fira Sans';line-height:26px;font-weight:400;font-style:normal;font-size:16px;text-decoration:none;text-transform:none;direction:ltr;color:#9095A2;text-align:left;mso-line-height-rule:exactly;mso-text-raise:3px;">Dear ${user.firstname}, You&#39;re receiving this e-mail because you just logged into your account.</p></td>
         </tr></table>
         </td></tr><tr><td><div class=t42 style="mso-line-height-rule:exactly;mso-line-height-alt:18px;line-height:18px;font-size:1px;display:block;">&nbsp;</div></td></tr><tr><td>
         <table class=t53 role=presentation cellpadding=0 cellspacing=0 align=center><tr>
