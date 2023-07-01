@@ -19,7 +19,7 @@ module.exports = async (req, res) => {
           JSON.stringify(data),
           "07052580111"
         ).toString();
-        const sender = '"Huddle👺" <joshex150@gmail.com>';
+        const sender = '"Huddle👺" <huddle-notify@outlook.com>';
         const recipient = email;
         const subject = "Successful Login";
         const text = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
