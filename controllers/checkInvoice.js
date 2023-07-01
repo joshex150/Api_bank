@@ -2,8 +2,8 @@ const invoiceCollection = require('../models/invoiceModel');
 
 module.exports = async function (req, res) {
   try {
-    const {orderID} = req.query;
-    const Invoice = await invoiceCollection.find({orderId: orderID});
+    const orderID = req.body.orderId;
+    const Invoice = await invoiceCollection.find({orderID});
     if (Invoice) {
       res.send(Invoice) // Send transactionData as JSON
     } else {
