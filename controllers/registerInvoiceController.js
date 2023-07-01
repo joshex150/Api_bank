@@ -174,7 +174,7 @@ preserveAspectRatio="xMidYMid meet" viewBox="0 10 45 20">
 <!--[if !mso]><!--><td class=t44 style="width:475px;">
 <!--<![endif]-->
 <!--[if mso]><td class=t44 style="width:475px;"><![endif]-->
-<p class=t50 style="font-family:BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif,'Fira Sans';line-height:26px;font-weight:400;font-style:normal;font-size:16px;text-decoration:none;text-transform:none;direction:ltr;color:#9095A2;text-align:left;mso-line-height-rule:exactly;mso-text-raise:3px;">Dear Customer, receiving this e-mail means your Payment for order: <a href="https://huddle-chris.vercel.app">${req.body.orderId}</a> was succesful and is now being processed.</p></td>
+<p class=t50 style="font-family:BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif,'Fira Sans';line-height:26px;font-weight:400;font-style:normal;font-size:16px;text-decoration:none;text-transform:none;direction:ltr;color:#9095A2;text-align:left;mso-line-height-rule:exactly;mso-text-raise:3px;">Dear Customer, receiving this e-mail means your Payment for order: <a href="https://huddle-chris.vercel.app/invoice?orderID=${req.body.orderId}">${req.body.orderId}</a> was succesful and is now being processed.</p></td>
 </tr></table>
 </td></tr><tr><td><div class=t42 style="mso-line-height-rule:exactly;mso-line-height-alt:18px;line-height:18px;font-size:1px;display:block;">&nbsp;</div></td></tr><tr><td>
 <table class=t53 role=presentation cellpadding=0 cellspacing=0 align=center><tr>

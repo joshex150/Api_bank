@@ -12,6 +12,7 @@ const loginController = require('./controllers/loginController');
 const refreshController = require('./controllers/refreshController');
 const updateBalanceController = require('./controllers/updateBalanceController');
 const checkTransactions = require('./controllers/checkTransactions');
+const checkInvoice = require('./controllers/checkInvoice');
 
 // Creating the app
 const app = express();
@@ -32,6 +33,7 @@ app.post('/invoice',registerInvoiceController);
 app.post('/update',updateBalanceController);
 app.post('/login', loginController);
 app.post('/transactions', checkTransactions);
+app.post('/receipt', checkInvoice);
 app.post('/refresh', refreshController);
 
 // Starting the server
