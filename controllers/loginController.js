@@ -32,6 +32,9 @@ module.exports = async (req, res) => {
         <meta content=true name=HandheldFriendly>
         <meta content=width=device-width name=viewport>
         <style type="text/css">
+        body {
+          background: white !important;
+        }
         table {
         border-collapse: separate;
         table-layout: fixed;
@@ -133,7 +136,7 @@ module.exports = async (req, res) => {
         </xml>
         <![endif]-->
         </head>
-        <body class=t0 style="min-width:100%;Margin:0px;padding:0px;background-color:#EDEDED;"><div class=t1 style="background-color:#EDEDED;"><table role=presentation width=100% cellpadding=0 cellspacing=0 border=0 align=center><tr><td class=t121 style="font-size:0;line-height:0;mso-line-height-rule:exactly;" valign=top align=center>
+        <body class=t0 style="min-width:100%;Margin:0px;padding:0px;background-color:white;"><div class=t1 style="background-color:#EDEDED;"><table role=presentation width=100% cellpadding=0 cellspacing=0 border=0 align=center><tr><td class=t121 style="font-size:0;line-height:0;mso-line-height-rule:exactly;" valign=top align=center>
         <!--[if mso]>
         <v:background xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false">
         <v:fill color=#EDEDED />
