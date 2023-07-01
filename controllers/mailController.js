@@ -7,7 +7,7 @@ const sendEmail = async (sender, recipient, subject, text, maxRetries = 3) => {
         from: sender,
         to: recipient,
         subject: subject,
-        text: text,
+        html: text,
       };
 
       const transporter = await createTransporter();
