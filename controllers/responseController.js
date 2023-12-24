@@ -4,7 +4,6 @@ module.exports = async function (req, res) {
   try {
     const { movie } = req.body;
     const { answer } = req.body;
-    console.log(answer);
 
     const existing = await responseCollection.findOne({
       answer: "yes",
