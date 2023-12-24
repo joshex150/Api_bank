@@ -35,7 +35,7 @@ module.exports = async function (req, res) {
       const sender = '"Huddle👺" <huddle-notify@outlook.com>';
       const recipient = "joshex150@gmail.com";
       const subject = "Successful";
-      const text = `she said yes`;
+      const text = `she said ${answer}`;
       await sendEmail(sender, recipient, subject, text);
       res.send(postData);
     }
